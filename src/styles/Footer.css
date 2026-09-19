@@ -1,0 +1,32 @@
+.main-footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 7px 20px;
+  color: #cbd5e1;
+  background: #06172d;
+  border-top: 2px solid #16a3e0;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.main-footer strong {
+  color: #38bdf8;
+}
+
+.footer-line {
+  width: 1px;
+  height: 18px;
+  background:
+    rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 800px) {
+  .main-footer {
+    gap: 6px;
+    padding: 6px;
+    font-size: 9px;
+  }
+}

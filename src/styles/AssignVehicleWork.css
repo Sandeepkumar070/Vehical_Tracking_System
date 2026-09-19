@@ -1,0 +1,1155 @@
+/* =========================================================
+   GLOBAL BOX SIZING
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   ASSIGN VEHICLE WORK PAGE
+   ========================================================= */
+
+.assign-page {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+
+  padding:
+    clamp(12px, 1.4vw, 26px);
+
+  overflow: hidden;
+
+  color: #ffffff;
+
+  background-color: #031a32;
+  background-image:
+    url("../assets/vehicle-assignment-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  isolation: isolate;
+}
+
+/* =========================================================
+   BACKGROUND DARK OVERLAY
+   ========================================================= */
+
+.assign-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(1, 20, 42, 0.72),
+      rgba(2, 28, 53, 0.86) 48%,
+      rgba(1, 19, 38, 0.94)
+    );
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   MAIN PAGE CONTENT
+   ========================================================= */
+
+.assign-content {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap:
+    clamp(12px, 1.5vh, 20px);
+}
+
+/* =========================================================
+   PAGE TITLE
+   ========================================================= */
+
+.assign-title {
+  text-align: center;
+}
+
+.assign-title h1 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size:
+    clamp(25px, 2.7vw, 48px);
+
+  font-weight: 900;
+  letter-spacing: 0.5px;
+
+  text-shadow:
+    0 5px 18px
+    rgba(0, 0, 0, 0.45);
+}
+
+.assign-title h1 span {
+  color: #18d5f4;
+}
+
+.assign-title i {
+  display: block;
+
+  width: 55px;
+  height: 5px;
+
+  margin:
+    10px auto 12px;
+
+  background: #13cbea;
+
+  border-radius: 5px;
+
+  box-shadow:
+    0 0 15px #09c8ed;
+}
+
+.assign-title p {
+  margin: 0;
+
+  color: #9cbbe9;
+
+  font-size:
+    clamp(10px, 0.9vw, 15px);
+
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
+/* =========================================================
+   METHOD CARD GRID
+   ========================================================= */
+
+.method-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap:
+    clamp(14px, 1.5vw, 26px);
+}
+
+/* =========================================================
+   METHOD CARDS
+   ========================================================= */
+
+.method-card {
+  min-width: 0;
+  min-height:
+    clamp(140px, 19vh, 205px);
+
+  display: grid;
+
+  grid-template-columns:
+    130px
+    1px
+    minmax(0, 1fr)
+    50px;
+
+  align-items: center;
+
+  gap: 24px;
+
+  padding:
+    clamp(17px, 2vw, 32px);
+
+  overflow: hidden;
+
+  color: #ffffff;
+
+  text-align: left;
+  font-family: inherit;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(4, 63, 106, 0.88),
+      rgba(3, 42, 79, 0.93)
+    );
+
+  border:
+    2px solid #08bde9;
+
+  border-radius: 16px;
+
+  box-shadow:
+    inset 0 1px 15px
+      rgba(27, 196, 255, 0.08),
+    0 12px 32px
+      rgba(0, 0, 0, 0.25);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.method-card.manual {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(45, 36, 130, 0.8),
+      rgba(14, 28, 91, 0.92)
+    );
+
+  border-color: #794bf5;
+}
+
+.method-card:hover {
+  transform:
+    translateY(-4px);
+
+  filter: brightness(1.08);
+}
+
+.method-card.active {
+  transform:
+    translateY(-4px);
+
+  box-shadow:
+    0 0 24px
+      rgba(10, 191, 239, 0.28),
+    0 16px 35px
+      rgba(0, 0, 0, 0.32);
+}
+
+.method-card.manual.active {
+  box-shadow:
+    0 0 26px
+      rgba(125, 77, 255, 0.35),
+    0 16px 35px
+      rgba(0, 0, 0, 0.32);
+}
+
+.method-card:focus-visible {
+  outline:
+    3px solid #ffffff;
+
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   METHOD CARD ICON
+   ========================================================= */
+
+.method-icon {
+  width: 105px;
+  height: 90px;
+
+  display: grid;
+  place-items: center;
+
+  color: #d9f8ff;
+
+  background:
+    rgba(13, 160, 218, 0.18);
+
+  border:
+    2px solid #8ce9ff;
+
+  border-radius: 14px;
+
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.manual .method-icon {
+  font-size: 55px;
+
+  background:
+    rgba(104, 65, 225, 0.18);
+
+  border-color: #9e83ff;
+}
+
+/* =========================================================
+   METHOD CARD DIVIDER
+   ========================================================= */
+
+.method-divider {
+  width: 1px;
+  height: 85%;
+
+  background: #16c9ed;
+
+  box-shadow:
+    0 0 12px #16c9ed;
+}
+
+.manual .method-divider {
+  background: #8f6cff;
+
+  box-shadow:
+    0 0 12px #8f6cff;
+}
+
+/* =========================================================
+   METHOD CARD TEXT
+   ========================================================= */
+
+.method-copy {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 9px;
+}
+
+.method-copy strong {
+  font-size:
+    clamp(18px, 1.75vw, 30px);
+}
+
+.method-copy small {
+  color: #c1d8f5;
+
+  font-size:
+    clamp(12px, 1.05vw, 18px);
+
+  line-height: 1.4;
+}
+
+.method-copy em {
+  color: #82a9d2;
+
+  font-size: 12px;
+  font-style: normal;
+}
+
+.method-card > b {
+  width: 46px;
+  height: 46px;
+
+  display: grid;
+  place-items: center;
+
+  color: #54dfff;
+
+  border:
+    2px solid currentColor;
+
+  border-radius: 50%;
+
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.method-card.manual > b {
+  color: #a585ff;
+}
+
+/* =========================================================
+   FILE UPLOAD SECTION
+   ========================================================= */
+
+.file-strip {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    auto
+    auto;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 10px 15px;
+
+  background:
+    rgba(3, 39, 72, 0.93);
+
+  border:
+    1px dashed #16c9ed;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 8px 22px
+    rgba(0, 0, 0, 0.22);
+}
+
+.file-strip input[type="file"] {
+  display: none;
+}
+
+.selected-file-name {
+  min-width: 0;
+
+  overflow: hidden;
+
+  color: #b9d5eb;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-strip button {
+  height: 40px;
+
+  padding: 0 18px;
+
+  color: #001a2e;
+
+  background:
+    linear-gradient(
+      180deg,
+      #22ddf4,
+      #05aee7
+    );
+
+  border: 0;
+  border-radius: 7px;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    filter 0.2s ease,
+    transform 0.2s ease;
+}
+
+.file-strip button:hover:not(:disabled) {
+  transform:
+    translateY(-1px);
+
+  filter: brightness(1.08);
+}
+
+.file-strip button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* =========================================================
+   ASSIGNMENT DETAILS CARD
+   ========================================================= */
+
+.details-card {
+  padding:
+    clamp(17px, 1.9vw, 30px);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(3, 48, 86, 0.94),
+      rgba(2, 33, 65, 0.96)
+    );
+
+  border:
+    2px solid #047cc1;
+
+  border-radius: 16px;
+
+  box-shadow:
+    inset 0 1px 18px
+      rgba(22, 174, 234, 0.1),
+    0 14px 38px
+      rgba(0, 0, 0, 0.3);
+}
+
+/* =========================================================
+   ASSIGNMENT CARD HEADING
+   ========================================================= */
+
+.details-heading {
+  display: grid;
+
+  grid-template-columns:
+    auto
+    minmax(0, 1fr)
+    auto;
+
+  align-items: center;
+
+  gap: 15px;
+}
+
+.document-icon {
+  width: 47px;
+  height: 47px;
+
+  display: grid;
+  place-items: center;
+
+  color: #03223c;
+
+  background: #0fc7ed;
+
+  border-radius: 8px;
+
+  font-size: 27px;
+  font-weight: 900;
+
+  box-shadow:
+    0 0 16px
+    rgba(15, 199, 237, 0.3);
+}
+
+.details-heading h2 {
+  margin:
+    0 0 4px;
+
+  color: #ffffff;
+
+  font-size:
+    clamp(16px, 1.25vw, 22px);
+}
+
+.details-heading p {
+  margin: 0;
+
+  color: #92afd1;
+
+  font-size:
+    clamp(11px, 0.9vw, 15px);
+}
+
+.details-heading small {
+  color: #819ec5;
+
+  font-size: 11px;
+  letter-spacing: 1.5px;
+
+  white-space: nowrap;
+}
+
+/* =========================================================
+   FORM FIELD ROW
+   ========================================================= */
+
+.fields-row {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      5,
+      minmax(0, 1fr)
+    );
+
+  gap:
+    clamp(10px, 1.25vw, 22px);
+
+  margin-top:
+    clamp(17px, 2vh, 28px);
+}
+
+.fields-row label {
+  min-width: 0;
+}
+
+.fields-row label > span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #ffffff;
+
+  font-size:
+    clamp(12px, 0.9vw, 16px);
+
+  font-weight: 800;
+}
+
+/* =========================================================
+   INPUTS AND SELECT
+   ========================================================= */
+
+.fields-row input,
+.fields-row select {
+  width: 100%;
+  height: 52px;
+
+  padding: 0 16px;
+
+  color: #ffffff;
+
+  background:
+    rgba(6, 40, 73, 0.9);
+
+  border:
+    1px solid #4a83b5;
+
+  border-radius: 9px;
+
+  outline: none;
+
+  font-family: inherit;
+
+  font-size:
+    clamp(12px, 0.95vw, 17px);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.fields-row input::placeholder {
+  color: #829db5;
+}
+
+.fields-row select option {
+  color: #ffffff;
+  background: #082d50;
+}
+
+.fields-row input:focus,
+.fields-row select:focus {
+  border-color: #13d5ef;
+
+  box-shadow:
+    0 0 0 3px
+      rgba(19, 213, 239, 0.12),
+    0 0 12px
+      rgba(19, 213, 239, 0.35);
+}
+
+/* =========================================================
+   READ-ONLY FIELDS
+   ========================================================= */
+
+.fields-row input[readonly] {
+  color: #c7d7e8;
+
+  background:
+    rgba(3, 29, 56, 0.88);
+
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   DISABLED FIELDS
+   ========================================================= */
+
+.fields-row input:disabled,
+.fields-row select:disabled {
+  color: #829bb3;
+
+  background:
+    rgba(4, 27, 51, 0.88);
+
+  border-color: #365772;
+
+  cursor: not-allowed;
+
+  opacity: 0.75;
+}
+
+/* =========================================================
+   DATE AND TIME INPUT
+   ========================================================= */
+
+.fields-row
+  input[type="datetime-local"] {
+  color-scheme: dark;
+}
+
+.fields-row
+  input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  padding: 5px;
+
+  background-color: #22d3ee;
+
+  border-radius: 4px;
+
+  cursor: pointer;
+
+  filter: none;
+}
+
+/* =========================================================
+   MESSAGE AND ACTION AREA
+   ========================================================= */
+
+.details-bottom {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 16px;
+
+  margin-top: 22px;
+}
+
+.details-bottom > p {
+  min-width: 0;
+
+  margin: 0;
+
+  font-size:
+    clamp(12px, 0.9vw, 15px);
+
+  font-weight: 700;
+}
+
+.assignment-success {
+  color: #54e6cb;
+}
+
+.assignment-error {
+  color: #ff8c8c;
+}
+
+.details-bottom > div {
+  display: flex;
+
+  gap: 16px;
+
+  margin-left: auto;
+}
+
+/* =========================================================
+   RESET AND SAVE BUTTONS
+   ========================================================= */
+
+.reset-btn,
+.save-btn {
+  height: 52px;
+  min-width: 180px;
+
+  padding: 0 22px;
+
+  border-radius: 10px;
+
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 850;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.reset-btn {
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #124676,
+      #0b3158
+    );
+
+  border:
+    1px solid #3c719e;
+}
+
+.save-btn {
+  min-width: 245px;
+
+  color: #001b2e;
+
+  background:
+    linear-gradient(
+      180deg,
+      #22ddf4,
+      #05aee7
+    );
+
+  border: 0;
+
+  box-shadow:
+    0 7px 18px
+    rgba(0, 183, 235, 0.24);
+}
+
+.reset-btn:hover,
+.save-btn:hover {
+  transform:
+    translateY(-2px);
+
+  filter: brightness(1.1);
+}
+
+.save-btn:hover {
+  box-shadow:
+    0 10px 24px
+    rgba(0, 183, 235, 0.35);
+}
+
+.reset-btn:focus-visible,
+.save-btn:focus-visible,
+.file-strip button:focus-visible {
+  outline:
+    3px solid #ffffff;
+
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   TABLET RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .assign-page {
+    height: auto;
+    min-height: 100%;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .assign-content {
+    height: auto;
+    min-height: 100%;
+  }
+
+  .method-card {
+    grid-template-columns:
+      80px
+      1px
+      minmax(0, 1fr)
+      38px;
+
+    gap: 14px;
+  }
+
+  .method-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .method-card > b {
+    width: 36px;
+    height: 36px;
+
+    font-size: 30px;
+  }
+
+  .fields-row {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+  }
+
+  .details-heading small {
+    display: none;
+  }
+}
+
+/* =========================================================
+   MOBILE RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 650px) {
+  .assign-page {
+    padding: 10px;
+  }
+
+  .assign-title p {
+    letter-spacing: 2px;
+  }
+
+  .method-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .method-card {
+    min-height: 120px;
+
+    grid-template-columns:
+      64px
+      1px
+      minmax(0, 1fr)
+      32px;
+
+    gap: 11px;
+
+    padding: 15px;
+  }
+
+  .method-icon {
+    width: 58px;
+    height: 58px;
+
+    font-size: 17px;
+  }
+
+  .manual .method-icon {
+    font-size: 35px;
+  }
+
+  .method-divider {
+    height: 70%;
+  }
+
+  .method-copy strong {
+    font-size: 16px;
+  }
+
+  .method-copy small {
+    font-size: 11px;
+  }
+
+  .method-copy em {
+    display: none;
+  }
+
+  .method-card > b {
+    width: 30px;
+    height: 30px;
+
+    font-size: 25px;
+  }
+
+  .file-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .selected-file-name {
+    text-align: center;
+  }
+
+  .file-strip button {
+    width: 100%;
+  }
+
+  .details-heading {
+    grid-template-columns:
+      auto
+      minmax(0, 1fr);
+  }
+
+  .fields-row {
+    grid-template-columns: 1fr;
+  }
+
+  .details-bottom {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .details-bottom > p {
+    text-align: center;
+  }
+
+  .details-bottom > div {
+    width: 100%;
+
+    margin: 0;
+  }
+
+  .reset-btn,
+  .save-btn {
+    min-width: 0;
+
+    flex: 1;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 430px) {
+  .details-card {
+    padding: 14px;
+  }
+
+  .document-icon {
+    width: 40px;
+    height: 40px;
+
+    font-size: 22px;
+  }
+
+  .details-heading h2 {
+    font-size: 14px;
+  }
+
+  .details-heading p {
+    font-size: 10px;
+  }
+
+  .details-bottom > div {
+    flex-direction: column;
+  }
+
+  .reset-btn,
+  .save-btn {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   SHORT DESKTOP SCREEN
+   ========================================================= */
+
+@media (
+  min-width: 1001px
+) and (
+  max-height: 750px
+) {
+  .assign-page {
+    padding: 10px 16px;
+  }
+
+  .assign-content {
+    gap: 9px;
+  }
+
+  .assign-title h1 {
+    font-size: 29px;
+  }
+
+  .assign-title i {
+    margin:
+      5px auto 7px;
+  }
+
+  .method-card {
+    min-height: 120px;
+
+    padding: 14px 20px;
+  }
+
+  .method-icon {
+    width: 75px;
+    height: 68px;
+  }
+
+  .method-card {
+    grid-template-columns:
+      85px
+      1px
+      minmax(0, 1fr)
+      42px;
+  }
+
+  .details-card {
+    padding: 15px 20px;
+  }
+
+  .fields-row {
+    margin-top: 14px;
+  }
+
+  .fields-row input,
+  .fields-row select {
+    height: 44px;
+  }
+
+  .details-bottom {
+    margin-top: 13px;
+  }
+
+  .reset-btn,
+  .save-btn {
+    height: 44px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (
+  prefers-reduced-motion:
+    reduce
+) {
+  .method-card,
+  .file-strip button,
+  .reset-btn,
+  .save-btn {
+    transition: none;
+  }
+}
+
+/* =========================================================
+   API LOADING, ERROR AND DISABLED STATES
+   ========================================================= */
+
+.assignment-success {
+  color: #54e6cb !important;
+}
+
+.assignment-error {
+  color: #ff8c8c !important;
+}
+
+.fields-row input:disabled,
+.fields-row select:disabled,
+.reset-btn:disabled,
+.save-btn:disabled,
+.retry-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.58;
+}
+
+.save-btn:disabled:hover,
+.reset-btn:disabled:hover {
+  transform: none;
+  filter: none;
+}
+
+.retry-btn {
+  height: 52px;
+  min-width: 120px;
+  padding: 0 18px;
+  color: #fff;
+  background: rgba(220, 38, 38, 0.22);
+  border: 1px solid #ff8c8c;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.retry-btn:hover {
+  background: rgba(220, 38, 38, 0.4);
+}
+
+.fields-row input[type="datetime-local"] {
+  color-scheme: dark;
+}
+
+.fields-row
+  input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  padding: 5px;
+  background-color: #22d3ee;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@media (max-width: 650px) {
+  .retry-btn {
+    width: 100%;
+  }
+}

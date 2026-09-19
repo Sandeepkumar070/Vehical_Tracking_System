@@ -1,0 +1,346 @@
+/* =========================================================
+   RESPONSIVE VEHICLE DASHBOARD
+   Ten records always fit above pagination on desktop.
+   ========================================================= */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+.main-content {
+  width: 100%; height: 100%; min-width: 0; min-height: 0;
+  padding: clamp(7px, .7vw, 13px) clamp(8px, .85vw, 16px);
+  overflow: hidden;
+}
+
+.vehicle-section {
+  width: 100%; height: 100%; min-width: 0; min-height: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) clamp(52px, 6.2vh, 64px);
+  overflow: hidden; background: #fff; border: 1px solid #d5e1ec;
+  border-radius: 12px; box-shadow: 0 7px 25px rgba(31,55,80,.1);
+}
+
+.table-wrapper {
+  width: 100%; height: 100%; min-width: 0; min-height: 0;
+  overflow: hidden;
+}
+
+/* CSS Grid fixes normal table sizing, which was pushing row 10 out. */
+.vehicle-table {
+  width: 100%; height: 100%; min-width: 0;
+  display: grid;
+  grid-template-rows: clamp(42px, 5.4vh, 54px) minmax(0, 1fr);
+  border-collapse: collapse; table-layout: fixed;
+}
+
+.vehicle-table thead, .vehicle-table tbody {
+  width: 100%; min-width: 0; min-height: 0;
+}
+
+.vehicle-table thead {
+  display: grid; color: #fff;
+  background: linear-gradient(90deg, #0d3558, #15577e);
+}
+
+.vehicle-table tbody {
+  display: grid;
+  grid-template-rows: repeat(10, minmax(0, 1fr));
+  overflow: hidden;
+}
+
+.vehicle-table tr {
+  min-width: 0; min-height: 0; display: grid;
+  grid-template-columns: 5% 12% 15% 11% 10% 10% 14% 11% 12%;
+  align-items: stretch;
+}
+
+.vehicle-table th, .vehicle-table td {
+  width: auto !important; min-width: 0; display: flex; align-items: center;
+  padding: clamp(3px, .55vh, 7px) clamp(6px, .62vw, 12px);
+  overflow: hidden; text-align: left; white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.vehicle-table th {
+  color: #fff; font-size: clamp(11px, .82vw, 16px); font-weight: 850;
+  letter-spacing: .25px; text-transform: uppercase;
+}
+
+.vehicle-table td {
+  height: auto; color: #263f58; border-bottom: 1px solid #d9e4ee;
+  font-size: clamp(11px, .93vw, 18px); font-weight: 600;
+}
+
+.vehicle-table th:first-child, .vehicle-table td:first-child {
+  justify-content: center; text-align: center;
+}
+
+.vehicle-table tbody tr:nth-child(even) { background: #f3f8fc; }
+.vehicle-table tbody tr:hover { background: #e4f3ff; }
+.vehicle-table tbody tr:last-child td { border-bottom: none; }
+
+.vehicle-number {
+  max-width: 100%; overflow: hidden; color: #075985; font-weight: 850;
+  text-overflow: ellipsis;
+}
+
+.driver-cell {
+  width: 100%; min-width: 0; display: flex; align-items: center;
+  gap: clamp(5px, .55vw, 10px); overflow: hidden;
+}
+
+.driver-cell > span:last-child { overflow: hidden; text-overflow: ellipsis; }
+
+.driver-avatar {
+  width: clamp(25px, 3.5vh, 36px); height: clamp(25px, 3.5vh, 36px);
+  display: grid; flex: 0 0 auto; place-items: center; color: #fff;
+  background: linear-gradient(135deg, #0e7490, #2563eb); border-radius: 50%;
+  font-size: clamp(10px, .78vw, 15px); font-weight: 850;
+}
+
+.driver-photo-frame {
+  width: 34px !important;
+  height: 34px !important;
+  min-width: 34px !important;
+  min-height: 34px !important;
+  max-width: 34px !important;
+  max-height: 34px !important;
+  flex: 0 0 34px !important;
+  display: block !important;
+  overflow: hidden !important;
+  background: #dbeafe;
+  border: 2px solid #0ea5e9;
+  border-radius: 50% !important;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, .28);
+}
+
+.driver-photo-frame .driver-photo {
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  display: block !important;
+  object-fit: fill !important;
+  object-position: center !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.mobile-number {
+  max-width: 100%; overflow: hidden; color: #075bd8; font-weight: 750;
+  text-decoration: none; text-overflow: ellipsis;
+}
+
+.target-company {
+  max-width: 100%;
+  overflow: hidden;
+  color: #0c4a6e;
+  font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.status-badge {
+  width: min(100%, 145px); min-width: 0; display: inline-flex;
+  align-items: center; justify-content: center; gap: clamp(4px, .4vw, 7px);
+  padding: clamp(4px, .65vh, 8px) clamp(6px, .62vw, 12px);
+  overflow: hidden; border-radius: 22px;
+  font-size: clamp(10px, .75vw, 15px); font-weight: 850;
+  text-overflow: ellipsis;
+}
+
+.status-dot { width: 8px; height: 8px; flex: 0 0 auto; border-radius: 50%; }
+.status-badge.available { color: #166534; background: #dcfce7; }
+.status-badge.available .status-dot { background: #16a34a; }
+.status-badge.not-available { color: #991b1b; background: #fee2e2; }
+.status-badge.not-available .status-dot { background: #dc2626; }
+.status-badge.dispatched { color: #5b21b6; background: #ede9fe; }
+.status-badge.dispatched .status-dot { background: #7c3aed; }
+
+.feedback-badge {
+  width: min(100%, 165px); min-width: 0; display: block;
+  padding: clamp(4px, .65vh, 8px) clamp(6px, .62vw, 12px);
+  overflow: hidden; border-radius: 7px;
+  font-size: clamp(10px, .75vw, 15px); font-weight: 850;
+  text-align: center; text-overflow: ellipsis;
+}
+
+.feedback-success { color: #166534; background: #dcfce7; }
+.feedback-warning { color: #92400e; background: #fef3c7; }
+.feedback-danger { color: #991b1b; background: #fee2e2; }
+
+.vehicle-table tbody .message-row {
+  grid-row: 1 / -1; grid-template-columns: 1fr; height: 100%;
+}
+
+.vehicle-table .message-row td {
+  width: 100% !important; height: 100%; justify-content: center;
+  padding: 30px; text-align: center; background: #fff;
+}
+
+.dashboard-message, .dashboard-error {
+  min-height: 180px; display: flex; align-items: center; justify-content: center;
+  gap: 12px; font-size: clamp(15px, 1.05vw, 20px); font-weight: 750;
+}
+
+.dashboard-message { color: #526980; }
+.dashboard-error { flex-direction: column; color: #b91c1c; }
+
+.dashboard-error button {
+  padding: 9px 22px; color: #fff; background: #075985; border: none;
+  border-radius: 7px; font-size: 14px; font-weight: 750; cursor: pointer;
+}
+
+.dashboard-error button:hover { background: #0c4a6e; }
+
+.loading-spinner {
+  width: 25px; height: 25px; border: 3px solid #cdeafb;
+  border-top-color: #0284c7; border-radius: 50%;
+  animation: loading-spin .8s linear infinite;
+}
+
+@keyframes loading-spin { to { transform: rotate(360deg); } }
+
+.pagination-area {
+  min-width: 0; display: grid;
+  grid-template-columns: minmax(0,1fr) auto minmax(0,1fr);
+  align-items: center; gap: 10px;
+  padding: clamp(6px, .7vh, 9px) clamp(10px, .95vw, 18px);
+  overflow: hidden; background: #f8fafc; border-top: 1px solid #d8e3ed;
+}
+
+.record-information {
+  min-width: 0; justify-self: start; overflow: hidden; color: #53687d;
+  font-size: clamp(11px, .75vw, 14px); font-weight: 650;
+  white-space: nowrap; text-overflow: ellipsis;
+}
+
+.record-information strong { color: #123f64; }
+
+.auto-switch-information {
+  justify-self: center; display: flex; align-items: center; gap: 7px;
+  color: #64748b; font-size: clamp(10px, .7vw, 13px); font-weight: 700;
+  white-space: nowrap;
+}
+
+.auto-dot {
+  width: 8px; height: 8px; flex: 0 0 auto; background: #0ea5e9;
+  border-radius: 50%; animation: dashboard-pulse 1.5s infinite;
+}
+
+@keyframes dashboard-pulse { 50% { opacity: .4; } }
+
+.pagination {
+  min-width: 0; justify-self: end; display: flex; align-items: center;
+  gap: clamp(3px, .32vw, 6px);
+}
+
+.page-button, .navigation-button {
+  min-width: clamp(31px, 2vw, 38px); height: clamp(31px, 3.8vh, 38px);
+  padding: 0 clamp(7px, .62vw, 12px); color: #284760; background: #fff;
+  border: 1px solid #c7d5e3; border-radius: 7px;
+  font-size: clamp(11px, .75vw, 14px); font-weight: 800; cursor: pointer;
+}
+
+.page-button:hover:not(:disabled), .navigation-button:hover:not(:disabled) {
+  color: #fff; background: #0b6fa4; border-color: #0b6fa4;
+}
+
+.page-button.active-page { color: #fff; background: #075985; border-color: #075985; }
+.navigation-button:disabled, .page-button:disabled { opacity: .45; cursor: not-allowed; }
+
+@media (max-width: 1200px) {
+  .vehicle-table tr {
+    grid-template-columns: 4% 13% 15% 11% 9% 9% 14% 12% 13%;
+  }
+  .vehicle-table th, .vehicle-table td { padding-inline: 5px; }
+  .auto-switch-information { display: none; }
+  .pagination-area { grid-template-columns: minmax(0,1fr) auto; }
+}
+
+@media (min-width: 801px) and (max-height: 720px) {
+  .main-content { padding-block: 5px; }
+  .vehicle-section { grid-template-rows: minmax(0,1fr) 46px; }
+  .vehicle-table { grid-template-rows: 38px minmax(0,1fr); }
+  .vehicle-table th, .vehicle-table td { padding-block: 2px; }
+  .driver-avatar { width: 23px; height: 23px; }
+  .driver-photo-frame {
+    width: 27px !important;
+    height: 27px !important;
+    min-width: 27px !important;
+    min-height: 27px !important;
+    max-width: 27px !important;
+    max-height: 27px !important;
+    flex-basis: 27px !important;
+  }
+  .status-badge, .feedback-badge { padding-block: 3px; }
+  .page-button, .navigation-button { height: 30px; }
+}
+
+/* On smaller devices cards scroll vertically so no record is hidden. */
+@media (max-width: 800px) {
+  .main-content {
+    height: 100%; padding: 8px; overflow-x: hidden; overflow-y: auto;
+  }
+
+  .vehicle-section {
+    height: auto; min-height: 100%; display: block; overflow: visible;
+  }
+
+  .table-wrapper { height: auto; overflow: visible; }
+
+  .vehicle-table, .vehicle-table thead, .vehicle-table tbody,
+  .vehicle-table tr, .vehicle-table td {
+    display: block; width: 100%; height: auto;
+  }
+
+  .vehicle-table { overflow: visible; }
+  .vehicle-table thead { display: none; }
+
+  .vehicle-table tbody {
+    display: grid; grid-template-rows: none; gap: 10px; height: auto;
+    padding: 10px; overflow: visible;
+  }
+
+  .vehicle-table tr {
+    overflow: hidden; background: #fff !important;
+    border: 1px solid #dbe5ef; border-radius: 10px;
+  }
+
+  .vehicle-table td {
+    position: relative; min-height: 46px; display: flex; align-items: center;
+    padding: 10px 12px 10px 48%; overflow: visible;
+    text-align: left !important; white-space: normal;
+  }
+
+  .vehicle-table td::before {
+    content: attr(data-label); position: absolute; left: 12px; width: 42%;
+    color: #0d466e; font-size: 12px; font-weight: 850;
+  }
+
+  .vehicle-table tbody .message-row { display: block; }
+  .vehicle-table .message-row td { padding: 25px 12px; }
+  .vehicle-table .message-row td::before { display: none; }
+  .status-badge, .feedback-badge { width: auto; max-width: 100%; }
+
+  .pagination-area {
+    display: flex; flex-direction: column; gap: 10px;
+    padding: 12px; overflow: visible;
+  }
+
+  .record-information { white-space: normal; }
+  .pagination { justify-content: center; flex-wrap: wrap; }
+}
+
+@media (max-width: 430px) {
+  .vehicle-table td { padding-left: 44%; }
+  .vehicle-table td::before { width: 37%; }
+  .navigation-button { flex: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-spinner, .auto-dot { animation: none; }
+}

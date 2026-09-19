@@ -1,0 +1,16 @@
+.app-layout {
+  width: 100%;
+  height: 100dvh;
+  display: grid;
+  grid-template-rows:
+    90px minmax(0, 1fr) 48px;
+  overflow: hidden;
+  background: #edf3f9;
+}
+
+@media (max-width: 800px) {
+  .app-layout {
+    grid-template-rows:
+      70px minmax(0, 1fr) 54px;
+  }
+}
